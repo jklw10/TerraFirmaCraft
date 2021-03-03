@@ -4,6 +4,8 @@ import javax.annotation.Nullable;
 
 import net.dries007.tfc.common.inventory.slot.KnappingOutputSlot;
 import net.dries007.tfc.common.recipes.TFCRecipeSerializers;
+import net.dries007.tfc.mixin.item.crafting.RecipeManagerAccessor;
+import net.dries007.tfc.mixin.item.crafting.RecipeManagerMixin;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.ContainerType;
@@ -27,7 +29,7 @@ public class KnappingContainer extends ItemStackContainer implements IButtonHand
     public boolean requiresReset;
     private boolean hasBeenModified;
 
-    public KnappingContainer(ContainerType<?> cType, int windowId, KnappingType type, PlayerInventory playerInv, ItemStack stack)
+    public KnappingContainer(ContainerType<SimpleContainer> cType, int windowId, KnappingType type, PlayerInventory playerInv, ItemStack stack)
     {
         super(cType,windowId,playerInv, stack);
         this.itemIndex += 1;
@@ -141,7 +143,7 @@ public class KnappingContainer extends ItemStackContainer implements IButtonHand
 
     private KnappingRecipe getMatchingRecipe()
     {
-        return Recipemana
+        return KnappingRecipe.CACHE.values().stream().filter(x -> x.getMatrix().matches(matrix)).findFirst().get();
     }
     public void consumeItem()
     {

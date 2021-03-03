@@ -2,7 +2,10 @@ package net.dries007.tfc.util;
 
 import java.util.Arrays;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonSyntaxException;
 import net.dries007.tfc.TerraFirmaCraft;
+import net.minecraft.util.JSONUtils;
 
 /**
  * A simple craft matrix for knapping / leather or clay working
@@ -11,9 +14,9 @@ import net.dries007.tfc.TerraFirmaCraft;
  */
 public class SimpleCraftMatrix
 {
-    private static final int MAX_WIDTH = 5;
-    private static final int MAX_HEIGHT = 5;
-    private static final int MAX_AREA = MAX_WIDTH * MAX_HEIGHT;
+    public static final int MAX_WIDTH = 5;
+    public static final int MAX_HEIGHT = 5;
+    public static final int MAX_AREA = MAX_WIDTH * MAX_HEIGHT;
 
     private static void logMatrix(boolean[] matrix)
     {
@@ -76,6 +79,25 @@ public class SimpleCraftMatrix
             for (int c = 0; c < width; c++)
                 this.matrix[i * width + c] = (line.charAt(c) != ' ');
         }
+    }
+
+    public boolean getOutsideSlot()
+    {
+        return outsideSlot;
+    }
+
+    public String[] getPattern()
+    {
+        String[] r = new String[height];
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                r[y] += get(x,y) ? 'x' : ' ';
+            }
+        }
+
+        return r;
     }
 
     public void setAll(boolean value)

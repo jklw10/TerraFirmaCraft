@@ -8,6 +8,7 @@ import net.dries007.tfc.common.recipes.knapping.KnappingType;
 import net.minecraft.client.gui.widget.Widget;
 import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.util.ResourceLocation;
 import net.dries007.tfc.client.screen.button.KnappingButton;
 import net.minecraft.util.text.StringTextComponent;
@@ -15,14 +16,14 @@ import net.minecraft.util.text.StringTextComponent;
 import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 
 
-public class KnappingScreen extends TFCContainerScreen<KnappingContainer>
+public class KnappingScreen extends TFCContainerScreen<SimpleContainer>
 {
     private static final ResourceLocation BACKGROUND = new ResourceLocation(MOD_ID, "textures/gui/knapping.png");
     private final ResourceLocation buttonBackground;
     private final ResourceLocation buttonTexture;
     private final KnappingType type;
 
-    public KnappingScreen(KnappingContainer container, PlayerInventory playerInventory, KnappingType type, ResourceLocation buttonTexture, ResourceLocation buttonBackground) {
+    public KnappingScreen(SimpleContainer container, PlayerInventory playerInventory, KnappingType type, ResourceLocation buttonTexture, ResourceLocation buttonBackground) {
         super(container, playerInventory, new StringTextComponent(type.getKnappingScreenName()), BACKGROUND);
         this.buttonBackground = buttonBackground;
         this.buttonTexture = buttonTexture;

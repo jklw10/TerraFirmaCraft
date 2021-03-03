@@ -8,6 +8,7 @@ package net.dries007.tfc.client;
 
 import java.util.stream.Stream;
 
+import net.dries007.tfc.client.screen.KnappingScreen;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraft.block.Block;
@@ -62,6 +63,7 @@ public final class ClientEventHandler
         ScreenManager.register(TFCContainerTypes.CALENDAR.get(), CalendarScreen::new);
         ScreenManager.register(TFCContainerTypes.NUTRITION.get(), NutritionScreen::new);
         ScreenManager.register(TFCContainerTypes.CLIMATE.get(), ClimateScreen::new);
+        ScreenManager.register(TFCContainerTypes.KNAPPING.get(), KnappingScreen::new);
 
         // Render Types
         final RenderType cutout = RenderType.cutout();

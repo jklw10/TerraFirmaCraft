@@ -11,6 +11,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 
 import net.dries007.tfc.common.recipes.knapping.KnappingRecipe;
+import net.dries007.tfc.common.recipes.knapping.KnappingType;
+import net.dries007.tfc.util.collections.IndirectHashCollection;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeType;
@@ -48,7 +50,7 @@ public enum CacheInvalidationListener implements IFutureReloadListener
         {
             CollapseRecipe.CACHE.reload(getRecipes(server, TFCRecipeTypes.COLLAPSE));
             LandslideRecipe.CACHE.reload(getRecipes(server, TFCRecipeTypes.LANDSLIDE));
-            KnappingRecipe.CACHE.reload(getRecipes(server, TFCRecipeTypes.KNAPPING));
+            new IndirectHashCollection<KnappingType,KnappingRecipe>(recipe -> KnappingRecipe.CACHE.keySet()).reload(getRecipes(server, TFCRecipeTypes.KNAPPING));
 
             HeatManager.reload();
             MetalItemManager.reload();

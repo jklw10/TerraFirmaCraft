@@ -8,6 +8,8 @@ package net.dries007.tfc.network;
 
 import java.util.function.Supplier;
 
+import net.dries007.tfc.common.container.ItemStackContainer;
+import net.dries007.tfc.common.container.KnappingContainer;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.network.NetworkEvent;
@@ -55,10 +57,6 @@ public class SwitchInventoryTabPacket
                     NetworkHooks.openGui(player, TFCContainerProviders.NUTRITION);
                 }
                 else if (type == Type.CLIMATE)
-                {
-                    NetworkHooks.openGui(player, TFCContainerProviders.CLIMATE);
-                }
-                else if (type == Type.KNAPPING)
                 {
                     NetworkHooks.openGui(player, TFCContainerProviders.KNAPPING);
                 }

@@ -25,7 +25,7 @@ public final class TFCContainerTypes
     public static final RegistryObject<ContainerType<SimpleContainer>> CALENDAR = register("calendar", (windowId, inv, data) -> new SimpleContainer(TFCContainerTypes.CALENDAR.get(), windowId, inv));
     public static final RegistryObject<ContainerType<SimpleContainer>> NUTRITION = register("nutrition", ((windowId, inv, data) -> new SimpleContainer(TFCContainerTypes.NUTRITION.get(), windowId, inv)));
     public static final RegistryObject<ContainerType<SimpleContainer>> CLIMATE = register("climate", ((windowId, inv, data) -> new SimpleContainer(TFCContainerTypes.CLIMATE.get(), windowId, inv)));
-    public static final RegistryObject<ContainerType<ItemStackContainer>> KNAPPING = register("knapping", ((windowId, inv, data) -> new ItemStackContainer(TFCContainerTypes.KNAPPING.get(), windowId, inv, ItemStack.EMPTY)));
+    public static final RegistryObject<ContainerType<SimpleContainer>> KNAPPING = register("knapping", ((windowId, inv, data) -> new SimpleContainer(TFCContainerTypes.KNAPPING.get(), windowId, inv)));
 
     private static <C extends Container> RegistryObject<ContainerType<C>> register(String name, IContainerFactory<C> factory)
     {

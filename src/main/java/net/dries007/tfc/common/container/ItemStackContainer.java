@@ -13,7 +13,7 @@ import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 
 @ParametersAreNonnullByDefault
-public class ItemStackContainer extends Container
+public abstract class ItemStackContainer extends SimpleContainer
 {
     protected final ItemStack stack;
     protected final PlayerEntity player;
@@ -124,7 +124,7 @@ public class ItemStackContainer extends Container
         return true;
     }
 
-    protected void addContainerSlots(){};
+    protected abstract void addContainerSlots();
 
     protected void addPlayerInventorySlots(PlayerInventory playerInv)
     {
@@ -136,7 +136,7 @@ public class ItemStackContainer extends Container
                 addSlot(new Slot(playerInv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
-
+        //hotbar
         for (int k = 0; k < 9; k++)
         {
             addSlot(new Slot(playerInv, k, 8 + k * 18, 142));

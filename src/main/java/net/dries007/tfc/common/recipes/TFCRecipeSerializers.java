@@ -24,7 +24,7 @@ public class TFCRecipeSerializers
 
     // Knapping Recipes
 
-    public static final RegistryObject<KnappingRecipe.Serializer<KnappingRecipe>> KNAPPING = register("knapping", () -> new KnappingRecipe.Serializer<>(KnappingRecipe::new));
+    public static final RegistryObject<KnappingRecipe.Serializer<KnappingRecipe>> KNAPPING = register("knapping", KnappingRecipe.Serializer::new);
 
 
     // Block Recipes
