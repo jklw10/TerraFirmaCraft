@@ -6,6 +6,7 @@
 
 package net.dries007.tfc.common.recipes;
 
+import net.dries007.tfc.common.recipes.knapping.KnappingRecipe;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeType;
 
@@ -15,6 +16,7 @@ public class TFCRecipeTypes
 {
     public static final IRecipeType<CollapseRecipe> COLLAPSE = register("collapse");
     public static final IRecipeType<LandslideRecipe> LANDSLIDE = register("landslide");
+    public static final IRecipeType<KnappingRecipe> KNAPPING = register("knapping");
 
     private static <R extends IRecipe<?>> IRecipeType<R> register(String name)
     {

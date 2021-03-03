@@ -8,6 +8,8 @@ package net.dries007.tfc.common.recipes;
 
 import java.util.function.Supplier;
 
+import net.dries007.tfc.common.recipes.knapping.KnappingRecipe;
+import net.dries007.tfc.util.SimpleCraftMatrix;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraftforge.fml.RegistryObject;
@@ -19,6 +21,11 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 public class TFCRecipeSerializers
 {
     public static final DeferredRegister<IRecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, MOD_ID);
+
+    // Knapping Recipes
+
+    public static final RegistryObject<KnappingRecipe.Serializer<KnappingRecipe>> KNAPPING = register("knapping", () -> new KnappingRecipe.Serializer<>(KnappingRecipe::new));
+
 
     // Block Recipes
 
